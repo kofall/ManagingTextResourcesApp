@@ -1,0 +1,38 @@
+﻿@model ManagingTextResourcesApp.Models.TextResource
+@Styles.Render("~/Content/detailStyle.css")
+
+@{
+    ViewBag.Title = Model.Title;
+    string link = Request.Url.AbsoluteUri.ToString();
+    link = link.Substring(0, link.LastIndexOf('/') + 1) + "Details_EditableLink/" + Model.EditHashCode;
+}
+
+<h1>@Model.Title</h1>
+
+<div class="content">
+    <div class="text">
+        @Html.DisplayFor(model => model.Text)
+    </div>
+    @if (ViewBag.uId != 0)
+    {
+        <nav>
+            @Html.ActionLink("Edytuj", "Edit", new { uId = ViewBag.uId, tUId = Model.UserId, hash = Model.EditHashCode, id = Model.Id })
+            @if (ViewBag.uId != -1)
+            {
+                @Html.ActionLink("Wygeneruj łącze", "Details", new { uId = ViewBag.uId, id = Model.Id, generateLink = true })
+            }
+        </nav>
+        if (String.Compare(Model.EditHashCode, "") != 0 && ViewBag.uId > 0)
+        {
+            <div class="link">
+                @link
+            </div>
+        }
+    }
+    @if (ViewBag.uId != -1)
+    {
+        <div class="back">
+            @Html.ActionLink("Wróć do listy", "Index", new { uId = ViewBag.uId })
+        </div>
+    }
+</div>

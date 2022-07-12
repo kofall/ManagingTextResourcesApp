@@ -1,0 +1,93 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.body-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    background: white;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+}
+
+.body-content h1 {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+nav {
+    width: 90%;
+    height: 50px;
+    gap: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+nav a {
+    width: 200px;
+    height: 100%;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid;
+    outline: none;
+    background-color: #cd7700;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a:hover {
+    border-color: #cd7700;
+    transition: .5s;
+}
+
+.body-content .content {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.content .text {
+    position: relative;
+    border-bottom: 2px solid #ebc999;
+    border-top: 2px solid #ebc999;
+    margin: 30px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.text label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 15px;
+    pointer-events: none;
+    transition: .5s
+}
+
+.back, .link {
+    margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+}
+
+.back a {
+    color: #cd7700;
+    text-decoration: none;
+}
+
+.back a:hover {
+    text-decoration: underline;
+}

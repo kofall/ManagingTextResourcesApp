@@ -1,0 +1,39 @@
+﻿@model ManagingTextResourcesApp.Models.User
+@Styles.Render("~/Content/signInUpp.css")
+
+@{
+    ViewBag.Title = "Zarejestruj się";
+}
+
+<h1>Zarejestruj się</h1>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="text">
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", required = true } })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+    <div class="text">
+        @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" }, required = true })
+        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+    <input type="submit" value="Zarejestruj" />
+    <div class="sign_up">
+        @Html.ActionLink("Zaloguj się", "Login")
+    </div>
+    if (ViewBag.errorMsg != null)
+    {
+        <div class="error">
+            @ViewBag.errorMsg
+        </div>
+    }
+}
+
+@section Info {
+    <div class="info">
+        Aplikacja internetowa umożliwiająca tworzenie, edycję i przeglądanie zasobów tekstowych.
+    </div>
+}

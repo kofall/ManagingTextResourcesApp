@@ -1,0 +1,38 @@
+﻿@model ManagingTextResourcesApp.Models.TextResource
+@Styles.Render("~/Content/createEdit_MyStyle.css")
+
+@{
+    ViewBag.Title = "Nowy";
+}
+
+<h1>Nowy zasób</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="text">
+        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", required = true } })
+        @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+    </div>
+    <div class="text">
+        <div class="textarea-style">
+            @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control", onkeyup = "charCount();"}, required = true })
+            @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+        </div>
+    </div>
+    <nav>
+        <input type="submit" value="Utwórz" />
+    </nav>
+    <div class="back">
+        @Html.ActionLink("Wróć do listy", "Index", new { uId = ViewBag.uId })
+    </div>
+    if (ViewBag.errorMsg != null)
+    {
+        <div class="error">
+            @ViewBag.errorMsg
+        </div>
+    }
+}

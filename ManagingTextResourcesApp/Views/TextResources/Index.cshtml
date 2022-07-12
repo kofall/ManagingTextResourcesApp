@@ -1,0 +1,16 @@
+﻿@model ManagingTextResourcesApp.Models.ViewModel
+@Styles.Render("~/Content/homeStyle.css")
+
+@{
+    ViewBag.Title = "Strona główna";
+}
+
+<h1>Zalogowano jako: @Model.User.Name</h1>
+<nav>
+    @Html.ActionLink("Wyloguj", "Logout", new { uId = Model.User.UserId })
+    @if (Model.User.UserId != 0)
+    {
+        @Html.ActionLink("Nowy", "Create", new { uId = Model.User.UserId })
+    }
+</nav>
+@Html.Partial("_TextsList", Model)

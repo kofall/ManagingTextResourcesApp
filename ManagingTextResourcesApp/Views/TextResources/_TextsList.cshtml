@@ -1,0 +1,40 @@
+﻿@model ManagingTextResourcesApp.Models.ViewModel
+
+<table class="table">
+    <tr id="header">
+        <th>
+            @Html.DisplayNameFor(model => model.TextResources.GetEnumerator().Current.Title)
+        </th>
+        @if (Model.User.UserId == 0)
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.User.Name)
+            </th>
+        }
+    </tr>
+
+    @foreach (var item in Model.TextResources)
+    {
+        if (item.UserId == Model.User.UserId || Model.User.UserId == 0)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(Html.DisplayFor(modelItem => item.Title).ToString(), "Details", new { uId = Model.User.UserId, id = item.Id })
+                </td>
+                @if (Model.User.UserId == 0) 
+                {
+                    foreach (var user in (IEnumerable<ManagingTextResourcesApp.Models.User>)ViewBag.users)
+                    {
+                        if (user.UserId == item.UserId)
+                        {
+                            <td>
+                                @Html.DisplayFor(modelItem => user.Name)
+                            </td>
+                        }
+                    }
+                }
+            </tr>
+        }
+    }
+
+</table>

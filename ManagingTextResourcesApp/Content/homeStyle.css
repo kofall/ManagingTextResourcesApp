@@ -1,0 +1,97 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.body-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1300px;
+    background: white;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+}
+
+.body-content h1 {
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+nav {
+    width: 90%;
+    height: 50px;
+    gap: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+nav a {
+    width: 200px;
+    height: 100%;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid;
+    outline: none;
+    background-color: #cd7700;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav a:hover {
+    border-color: #cd7700;
+    transition: .5s;
+}
+
+.body-content table {
+    width: 800px;
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 90%;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#header {
+    background-color: #ebc999;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th:first-of-type {
+    width: 75%;
+}
+
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-of-type(odd) {
+    background-color: #f3f3f3;
+}
+
+tr:last-of-type {
+    border-bottom: 2px solid #ebc999;
+}
+
+td a {
+    color: #cd7700;
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
